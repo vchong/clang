@@ -26,6 +26,12 @@
 // CHECK-CLANGRT-ARM: libclang_rt.builtins-arm.a
 
 // RUN: %clang -rtlib=compiler-rt -print-libgcc-file-name 2>&1 \
+// RUN:     --target=aarch64-linux-android \
+// RUN:     -resource-dir=%S/Inputs/resource_dir_with_arch_subdir \
+// RUN:   | FileCheck --check-prefix=CHECK-CLANGRT-AARCH64-ANDROID %s
+// CHECK-CLANGRT-AARCH64-ANDROID: libclang_rt.builtins-aarch64-android.a
+
+// RUN: %clang -rtlib=compiler-rt -print-libgcc-file-name 2>&1 \
 // RUN:     --target=arm-linux-androideabi \
 // RUN:     -resource-dir=%S/Inputs/resource_dir_with_arch_subdir \
 // RUN:   | FileCheck --check-prefix=CHECK-CLANGRT-ARM-ANDROID %s
